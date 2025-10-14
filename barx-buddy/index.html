@@ -985,6 +985,85 @@ window.addEventListener('load', function(){
 <script type="text/javascript">function getURLParameter(e){return decodeURIComponent((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1])}function getURLParameterExact(e){for(var t=window.location.search.substring(1).split("&"),n=0;n<t.length;n++){var r=t[n].split("=");if(r[0]==e)return r[1]}}</script><script type="text/javascript">window.addEventListener("load",function(){$(function(){"null"!=getURLParameter("email")&&($('input[name="contact[email]"]').val(getURLParameterExact("email")),$("[name=email]").val(getURLParameterExact("email"))),"null"!=getURLParameter("name")&&($('input[name="contact[name]"]').val(getURLParameterExact("name")),$("[name=name]").val(getURLParameterExact("name"))),"null"!=getURLParameter("first_name")&&($('input[name="contact[first_name]"]').val(getURLParameter("first_name")),$("[name=first_name]").val(getURLParameter("first_name"))),"null"!=getURLParameter("last_name")&&($('input[name="contact[last_name]"]').val(getURLParameter("last_name")),$("[name=last_name]").val(getURLParameter("last_name"))),"null"!=getURLParameter("address_1")&&($('input[name="contact[address_1]"]').val(getURLParameter("address")),$("[name=address_1]").val(getURLParameter("address_1"))),"null"!=getURLParameter("address_2")&&($('input[name="contact[address_1]"]').val(getURLParameter("address")),$("[name=address_2]").val(getURLParameter("address_2"))),"null"!=getURLParameter("city")&&($('input[name="contact[city]"]').val(getURLParameter("city")),$("[name=city]").val(getURLParameter("city"))),"null"!=getURLParameter("state")&&($('input[name="contact[state]"]').val(getURLParameter("state")),$("[name=state]").val(getURLParameter("state"))),"null"!=getURLParameter("zip")&&($('input[name="contact[zip]"]').val(getURLParameter("zip")),$("[name=zip]").val(getURLParameter("zip"))),"null"!=getURLParameter("phone")&&($('input[name="contact[phone]"]').val(getURLParameter("phone")),$("[name=phone]").val(getURLParameter("phone")))})});</script>
 <script type="text/javascript" src="./assets/pushcrew.js" async="async"></script><meta name='can_calculate_taxes' content='false'><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"93523accee688f12","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.4.0-1-g37f21b1","token":"405b708a9b0242e88fda34dc27903686"}' crossorigin="anonymous"></script>
 </body>
+
+	<!-- MOBILE-ONLY STICKY CTA (shows after 50% scroll) -->
+<a href="https://go.wisecombo.com/click"
+   id="scrollButton"
+   class="mobile-sticky-btn"
+   data-lasso-id="2235">
+   👉 See How It Works
+</a>
+
+<style>
+  /* Base (hidden) */
+  #scrollButton{
+    position:fixed; left:0; bottom:0; width:100%;
+    background:#2B9A0A; color:#fff; text-align:center;
+    padding:16px; font-size:18px; font-weight:700; text-decoration:none;
+    z-index:99999; box-shadow:0 -2px 10px rgba(0,0,0,.2);
+    opacity:0; transform:translateY(100%); transition:opacity .25s ease, transform .25s ease;
+    pointer-events:none; /* prevent clicks while hidden */
+    display:block; /* force block; we’ll control visibility via opacity/transform + media query */
+  }
+  /* Visible state */
+  #scrollButton.is-visible{
+    opacity:1; transform:translateY(0); pointer-events:auto;
+  }
+  /* Hide on desktop */
+  @media (min-width:769px){
+    #scrollButton{ display:none !important; }
+  }
+</style>
+
+<script>
+(function(){
+  // Run after DOM is ready (covers themes that defer JS)
+  function initStickyCTA(){
+    var btn = document.getElementById('scrollButton');
+    if(!btn) return;
+
+    function updateVisibility(){
+      // mobile-only guard
+      if (window.innerWidth > 768){
+        btn.classList.remove('is-visible');
+        return;
+      }
+
+      var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      var maxScroll = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      ) - window.innerHeight;
+
+      // Handle very short pages: show after user scrolls a bit OR if content is tiny
+      var percent = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 100;
+
+      if (percent >= 50){
+        btn.classList.add('is-visible');
+      } else {
+        btn.classList.remove('is-visible');
+      }
+    }
+
+    // Initial check (in case user reloads mid-page)
+    updateVisibility();
+
+    // Bind events
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility);
+    document.addEventListener('readystatechange', function(){
+      if (document.readyState === 'complete') updateVisibility();
+    });
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initStickyCTA);
+  } else {
+    initStickyCTA();
+  }
+})();
+</script>
 </html>
+
 
 
