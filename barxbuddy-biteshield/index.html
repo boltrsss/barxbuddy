@@ -17,6 +17,79 @@
 
 
 
+  <!-- Pinterest Tag -->
+<script>
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2612654090648', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2612654090648&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- end Pinterest Tag -->
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const baseUrl = 'https://go.wisecombo.com/click';
+  const currentParams = new URLSearchParams(window.location.search);
+
+  function buildFinalUrl() {
+    const url = new URL(baseUrl);
+    currentParams.forEach(function(value, key) {
+      url.searchParams.set(key, value);
+    });
+    return url.toString();
+  }
+
+  function shouldRewriteLink(a) {
+    const href = (a.getAttribute('href') || '').trim();
+    return (
+      href === './index.html' ||
+      href === 'index.html' ||
+      href === '/' ||
+      href === '' ||
+      a.hasAttribute('call-to-action') ||
+      a.hasAttribute('cta-id') ||
+      a.getAttribute('ctr-type-link') === 'external'
+    );
+  }
+
+  function rewriteLink(a) {
+    a.setAttribute('href', buildFinalUrl());
+    a.removeAttribute('target');
+    a.setAttribute('rel', 'noopener noreferrer');
+    a.removeAttribute('call-to-action');
+    a.removeAttribute('cta-id');
+    a.removeAttribute('ctr-type-link');
+    a.setAttribute('data-fixed-cta', 'true');
+  }
+
+  document.querySelectorAll('a').forEach(function(a) {
+    if (shouldRewriteLink(a)) rewriteLink(a);
+  });
+
+  const observer = new MutationObserver(function() {
+    document.querySelectorAll('a').forEach(function(a) {
+      if (shouldRewriteLink(a)) rewriteLink(a);
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['href', 'call-to-action', 'cta-id', 'ctr-type-link']
+  });
+});
+</script>
+
+
 
 <meta name="title" content="Stops Ticks &amp; Fleas Before They Bite 
 (And Before They Invade Your Home!)">
