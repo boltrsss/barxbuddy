@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BarxBuddy • Humane Way to Stop Barking</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --brand-green:#2B9A0A;
+    --brand-orange:#F7941D;
+    --ink:#111827;
+    --muted:#4B5563;
+    --bg:#F8FAFC;
+    --card:#FFFFFF;
+    --stroke:#E5E7EB;
+    --gutter:16px;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+            font-family:Inter,system-ui,Arial,sans-serif;line-height:1.6}
+  img{max-width:100%;height:auto;display:block;border-radius:12px}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:min(1100px,92vw);margin:0 auto;padding:clamp(14px,2vw,24px)}
+  .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;
+        box-shadow:0 8px 22px rgba(0,0,0,.05);padding:clamp(16px,2vw,22px);margin-top:20px}
+  h1,h2,h3{margin:0 0 .6em}
+  h1{font-size:clamp(1.8rem,2.6vw,2.2rem)}
+  h2{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+  p{margin:.6em 0;color:var(--muted)}
+  .lead{font-size:1.1rem;color:#374151}
+  .btn{display:inline-block;border-radius:14px;font-weight:800;font-size:1.05rem;text-align:center;padding:1rem}
+  .btn-primary{background:var(--brand-green);color:#fff}
+  .btn-secondary{background:var(--brand-orange);color:#fff}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center}
+  .benefits{list-style:none;padding:0;margin:1em 0;display:grid;grid-template-columns:1fr 1fr;gap:.6em}
+  .benefits li::before{content:"✅ ";}
+  .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  .proof{background:#fff;border:1px solid var(--stroke);border-radius:12px;padding:1em}
+
+  /* CTA wrap */
+  .cta-wrap{
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    padding:0 var(--gutter);margin-top:1.2rem;
+  }
+  .btn-block{
+    display:block;width:100%;max-width:clamp(280px,70%,420px);
+    text-align:center;border-radius:14px;padding:1rem;font-size:1.05rem;font-weight:800;
+  }
+
+  /* Sticky CTA */
+  .sticky{position:fixed;bottom:0;left:0;right:0;background:#0B1220;color:#fff;display:none;z-index:9999;
+          box-shadow:0 -6px 18px rgba(0,0,0,.18);border-top-left-radius:12px;border-top-right-radius:12px;}
+  .sticky .inner{max-width:min(1100px,94vw);margin:0 auto;display:flex;flex-direction:row;
+                 align-items:center;justify-content:space-between;gap:.8rem;
+                 text-align:left;padding:.7rem .9rem;}
+  .sticky-info{font-size:.95rem;line-height:1.35}
+  .sticky .btn-primary{background:var(--brand-green);color:#fff;padding:.85em 1.3em;border-radius:12px;
+                       font-size:1rem;font-weight:800;white-space:nowrap}
+  @media(max-width:640px){
+    .grid-2{grid-template-columns:1fr}
+    .proof-grid{grid-template-columns:1fr}
+    .benefits{grid-template-columns:1fr}
+    .sticky .inner{flex-direction:column;align-items:center;text-align:center;padding:.6rem .8rem;gap:.55rem}
+    .sticky .btn-primary{width:100%;max-width:420px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Exact Dogglie Header -->
+<header style="background-color:#2295A2; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; color:#fff;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <i class="fas fa-dog" style="font-size:36px; color:#fff;"></i>
+    <span style="font-family:'Dancing Script',cursive; font-size:42px; color:#fff;">Dogglie</span>
+  </div>
+  <div style="font-size:1.1rem; color:rgba(255,255,255,0.75);">Advertorial</div>
+</header>
+
+<main id="page">
+
+<div class="container">
+
+  <section class="card">
+    <h1>This Tiny Device Helps Stop Barking — Without Shocks or Pain</h1>
+    <p class="lead">BarxBuddy uses a gentle ultrasonic signal that gets your dog’s attention and interrupts unwanted barking. Safe, humane, and easy to use.</p>
+    <img src="barxbuddy_hero_product.png" alt="BarxBuddy in use">
+    <div class="cta-wrap">
+      <a href="#product" class="btn btn-primary btn-block">✅ Check Discount & Availability</a>
+      <a href="#how" class="btn btn-secondary btn-block">🐶 See How It Works</a>
+    </div>
+  </section>
+
+  <section class="card grid-2">
+    <div>
+      <h2>“We tried everything… but the barking wouldn’t stop.”</h2>
+      <p>We didn’t want shock collars or anything that could hurt him. That’s why we tried BarxBuddy — and were surprised how quickly he calmed down.</p>
+      <div style="font-style:italic;background:#f9fafb;border:1px solid #e5e7eb;padding:1em;border-radius:12px">“One click and he paused. Within days, the nonstop barking we fought for months started to fade.”</div>
+    </div>
+    <div><img src="barxbuddy_hero_direct.png" alt="BarxBuddy device and calm dog"></div>
+  </section>
+
+  <section class="card" id="how">
+    <h2>How BarxBuddy Works</h2>
+    <p>BarxBuddy emits a pet‑safe ultrasonic tone that interrupts barking and helps your dog refocus on you.</p>
+    <ul class="benefits">
+      <li>Press the button to emit ultrasonic cue</li>
+      <li>Your dog pauses and listens</li>
+      <li>Reward calm behavior</li>
+      <li>Repeat for lasting results</li>
+    </ul>
+  </section>
+
+  <section class="card" id="product">
+    <h2>Today’s Offer</h2>
+    <p>Save up to 50% on BarxBuddy. Free shipping today and a 30‑day money‑back guarantee.</p>
+    <div class="grid-2">
+      <div>
+        <ul class="benefits">
+          <li>Safe & humane training device</li>
+          <li>Works up to 33 ft (10 m)</li>
+          <li>Fast shipping from local warehouses</li>
+        </ul>
+      </div>
+      <div style="text-align:center; padding:0 var(--gutter);">
+        <img src="barxbuddy_hero_product.png" alt="BarxBuddy product">
+        <a id="order" class="btn btn-primary btn-block" href="https://your-product-url.example">🛒 Get BarxBuddy — Up to 50% Off</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</main>
+
+<!-- Sticky CTA -->
+<div class="sticky" id="sticky">
+  <div class="inner">
+    <div class="sticky-info">
+      🐶 <strong>BarxBuddy Humane Trainer</strong><br>
+      <small>Free Shipping • 30‑Day Guarantee</small>
+    </div>
+    <a class="btn btn-primary" href="https://your-product-url.example">Get Up to 50% Off →</a>
+  </div>
+</div>
+
+<script>
+  // Sticky CTA reveal & padding adjust
+  (function(){
+    const sticky = document.getElementById('sticky');
+    const page = document.getElementById('page');
+    let shown=false;
+    function setPad(){
+      if(!shown) return;
+      const h = sticky.getBoundingClientRect().height;
+      page.style.paddingBottom = (h + 12) + 'px';
+    }
+    window.addEventListener('scroll',()=>{
+      const doc=document.documentElement;
+      const p=(window.scrollY||window.pageYOffset)/(doc.scrollHeight-doc.clientHeight);
+      if(!shown && p>0.35){ sticky.style.display='block'; shown=true; setPad(); }
+    });
+    window.addEventListener('resize', setPad);
+  })();
+</script>
+
+</body>
+</html>

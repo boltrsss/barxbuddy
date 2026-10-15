@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BarxBuddy Dog Behavior Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f7f7f7; }
+    .wrapper { max-width: 960px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden; }
+    .top-section { display: flex; flex-wrap: wrap; padding: 20px; align-items: center; }
+    .top-section img { width: 100%; max-width: 400px; border-radius: 10px; flex: 1 1 100%; }
+    .top-section .text { padding: 20px; flex: 1 1 100%; }
+    .top-section h2 { color: #2c3e50; margin-top: 0; }
+    .top-section p { line-height: 1.6; }
+    @media(min-width: 768px) {
+      .top-section { flex-wrap: nowrap; }
+      .top-section img { flex: 0 0 45%; }
+      .top-section .text { flex: 0 0 55%; }
+    }
+    .quiz-section { background-color: #24476b; color: white; padding: 20px; font-size: 1.1em; display: none; }
+    .quiz-section.active { display: block; }
+    .quiz-section .question { margin-bottom: 10px; font-weight: bold; }
+    .quiz-section .options label { display: block; margin-bottom: 10px; cursor: pointer; }
+    .quiz-section .options label:hover { color: #f1c40f; }
+    .progress-container { background-color: #ccc; border-radius: 20px; overflow: hidden; height: 10px; margin: 10px 0 20px; }
+    .progress-bar { height: 100%; background-color: #d35400; width: 20%; transition: width 0.3s ease; }
+    .cta-wrapper { display: none; text-align: center; padding: 20px; background-color: #fffef2; }
+    .cta-wrapper h3 { font-size: 1.5em; color: #2c3e50; margin-bottom: 10px; }
+    .cta-wrapper p { font-size: 1.1em; color: #444; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-button { background-color: #f39c12; color: #fff; text-align: center; padding: 15px; display: inline-block; width: 80%; border-radius: 8px; font-size: 1.2em; text-decoration: none; max-width: 400px; }
+    .analyzing-section { display: none; text-align: center; padding: 30px; background-color: #fffef2; }
+    .analyzing-section img { width: 80px; height: 80px; margin-bottom: 15px; }
+    .analyzing-section p { font-size: 1.1em; color: #333; }
+    footer { background-color: #2c3e50; color: white; text-align: center; padding: 10px; font-size: 0.9em; }
+  </style>
+  
+  
+  
+  <!--Optional, send client hints to get accurate device data-->
+<meta http-equiv="delegate-ch" content="sec-ch-ua https://go.wisecombo.com; sec-ch-ua-mobile https://go.wisecombo.com; sec-ch-ua-arch https://go.wisecombo.com; sec-ch-ua-model https://go.wisecombo.com; sec-ch-ua-platform https://go.wisecombo.com; sec-ch-ua-platform-version https://go.wisecombo.com; sec-ch-ua-bitness https://go.wisecombo.com; sec-ch-ua-full-version-list https://go.wisecombo.com; sec-ch-ua-full-version https://go.wisecombo.com" />
+
+<!-- MaxConv Tracking Script Base Code-->
+<script>!function(w,d,o,n,c){w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};var s=d.createElement(n),t=d.getElementsByTagName(n)[0];s.async=!0;s.defer=!0;s.src="https://go.wisecombo.com/t/52d5fe72-fdc0-49c4-bcbe-252749ffa86f.js";t.parentNode.insertBefore(s,t);}(window,document,"maxconv","script");</script>
+<noscript><link rel="stylesheet" href="https://go.wisecombo.com/t/t.css?mc_ns=1&mc_cmp=52d5fe72-fdc0-49c4-bcbe-252749ffa86f&mc_tid=" /></noscript>
+<!-- End MaxConv Tracking Script Base Code-->
+  
+  <!-- Pinterest Tag -->
+<script>
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2613933412260', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2613933412260&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- end Pinterest Tag -->
+
+
+
+  
+  
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top-section">
+      <img src="main2.png" alt="Frustrated dog owner">
+      <div class="text">
+        <h2>Does Your Dog’s Behavior Leave You Feeling Frustrated and Defeated?</h2>
+        <p>You’ve tried yelling, treats, maybe even expensive trainers — but nothing seems to work. The barking, the chewing, the constant anxiety... it doesn’t just affect your dog, it wears you down too.</p>
+        <p>This 30-second quiz will help uncover the real root of your dog’s behavior — and guide you toward a proven solution that thousands of dog owners are already using to restore calm and control.</p>
+      </div>
+    </div>
+
+    <!-- Quiz Sections -->
+    <div class="quiz-section active" id="step1">
+      <div class="question">1. What frustrates you most about your dog’s behavior?</div>
+      <div class="progress-container"><div class="progress-bar" id="progress-bar1"></div></div>
+      <div class="options">
+        <label><input type="radio" name="q1"> Constant barking at everything</label>
+        <label><input type="radio" name="q1"> Aggressive or anxious around people</label>
+        <label><input type="radio" name="q1"> Destroying furniture or belongings</label>
+        <label><input type="radio" name="q1"> Not listening to commands at all</label>
+      </div>
+    </div>
+
+    <div class="quiz-section" id="step2">
+      <div class="question">2. How does this behavior impact your daily life?</div>
+      <div class="progress-container"><div class="progress-bar" id="progress-bar2"></div></div>
+      <div class="options">
+        <label><input type="radio" name="q2"> I'm constantly embarrassed when guests visit</label>
+        <label><input type="radio" name="q2"> It causes stress in my family or relationships</label>
+        <label><input type="radio" name="q2"> I’ve thought about rehoming my dog</label>
+        <label><input type="radio" name="q2"> I feel hopeless trying to fix it</label>
+      </div>
+    </div>
+
+    <div class="quiz-section" id="step3">
+      <div class="question">3. What have you already tried?</div>
+      <div class="progress-container"><div class="progress-bar" id="progress-bar3"></div></div>
+      <div class="options">
+        <label><input type="radio" name="q3"> Treat-based training or yelling</label>
+        <label><input type="radio" name="q3"> Hiring a professional trainer</label>
+        <label><input type="radio" name="q3"> Bark collars or sprays</label>
+        <label><input type="radio" name="q3"> Nothing – I feel overwhelmed</label>
+      </div>
+    </div>
+
+    <div class="quiz-section" id="step4">
+      <div class="question">4. What outcome would make the biggest difference for you?</div>
+      <div class="progress-container"><div class="progress-bar" id="progress-bar4"></div></div>
+      <div class="options">
+        <label><input type="radio" name="q4"> A calmer, quieter dog I can enjoy</label>
+        <label><input type="radio" name="q4"> Peace at home and during walks</label>
+        <label><input type="radio" name="q4"> Trusting my dog around others</label>
+        <label><input type="radio" name="q4"> Confidence that I’m a good pet parent</label>
+      </div>
+    </div>
+
+    <div class="quiz-section" id="step5">
+      <div class="question">5. Are you open to using a vet-approved tool to help correct your dog’s behavior?</div>
+      <div class="progress-container"><div class="progress-bar" id="progress-bar5"></div></div>
+      <div class="options">
+        <label><input type="radio" name="q5"> Yes, I’ve tried everything else</label>
+        <label><input type="radio" name="q5"> If it’s safe and easy, yes</label>
+        <label><input type="radio" name="q5"> Maybe, I’m curious to learn more</label>
+        <label><input type="radio" name="q5"> No, I prefer traditional training</label>
+      </div>
+    </div>
+
+    <div class="analyzing-section" id="analyzing">
+      <img src="https://i.imgur.com/llF5iyg.gif" alt="Analyzing...">
+      <p>Analyzing your answers…</p>
+    </div>
+
+    <div class="cta-wrapper" id="cta-wrapper">
+      <h3>🎉 Congratulations!</h3>
+      <p>Based on your answers, your dog is a great match for a gentle, vet-approved training device that thousands of pet owners are using to stop barking, calm anxiety, and restore peace at home.</p>
+      <p>Take the next step now and see how quickly you can transform your dog’s behavior without yelling, punishment, or expensive classes.</p>
+      <a href="https://go.wisecombo.com/click" class="cta-button">Yes, Show Me the Easy Fix Now</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 BarxBuddy. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const steps = ["step1", "step2", "step3", "step4", "step5"];
+      steps.forEach((stepId, index) => {
+        const inputs = document.querySelectorAll(`#${stepId} input[type='radio']`);
+        inputs.forEach(input => {
+          input.addEventListener('change', () => {
+            document.getElementById(stepId).classList.remove('active');
+            if (index < steps.length - 1) {
+              document.getElementById(steps[index + 1]).classList.add('active');
+              document.getElementById(`progress-bar${index + 2}`).style.width = `${(index + 2) * 20}%`;
+            } else {
+              document.getElementById('analyzing').style.display = 'block';
+              window.scrollTo({ top: document.getElementById('analyzing').offsetTop, behavior: 'smooth' });
+              setTimeout(() => {
+                document.getElementById('analyzing').style.display = 'none';
+                document.getElementById('cta-wrapper').style.display = 'block';
+                window.scrollTo({ top: document.getElementById('cta-wrapper').offsetTop, behavior: 'smooth' });
+              }, 3000);
+            }
+          });
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
